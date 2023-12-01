@@ -11,8 +11,9 @@ echo Y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/m
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
 )
+echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.zshrc
 kubectl krew install ctx
 kubectl krew install ns
 echo "alias kprod='kubectl ctx production && kubectl ns production'" >> ~/.zshrc
 echo "alias kstage='kubectl ctx staging && kubectl ns staging'" >> ~/.zshrc
-echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.zshrc
+echo "alias b='brexctl'" >> ~/.zshrc
