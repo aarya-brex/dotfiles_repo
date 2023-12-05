@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo Y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
@@ -11,6 +9,7 @@ echo Y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/m
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
 )
+
 echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.zshrc
 kubectl krew install ctx
 kubectl krew install ns
