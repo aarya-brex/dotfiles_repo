@@ -10,6 +10,7 @@
   ./"${KREW}" install krew
 )
 
+echo "source ~/.remote-dev/global-dotfiles-repo/.zshrc" >> ~/.zshrc
 echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.zshrc
 kubectl krew install ctx
 kubectl krew install ns
